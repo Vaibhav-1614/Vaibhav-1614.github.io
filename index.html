@@ -13,6 +13,9 @@
 <body>
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-glow" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress-bar" id="scroll-progress"></div></div>
 
   <header class="nav">
     <div class="nav-inner">
@@ -22,6 +25,7 @@
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
+        <span class="nav-indicator" aria-hidden="true"></span>
       </nav>
       <a class="btn btn-outline btn-sm" href="https://github.com/Vaibhav-1614" target="_blank" rel="noopener">
         <svg class="icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -34,8 +38,8 @@
     <!-- Hero -->
     <section class="hero">
       <p class="hero-kicker mono reveal">Hi, my name is</p>
-      <h1 class="hero-title reveal">Vaibhav Sharma.</h1>
-      <h2 class="hero-subtitle reveal">I turn data into decisions and build the backends behind them.</h2>
+      <h1 class="hero-title reveal"><span class="gradient-text">Vaibhav Sharma.</span></h1>
+      <h2 class="hero-subtitle reveal">I turn data into <span class="scramble accent" data-words="decisions,dashboards,forecasts,insights">decisions</span><br />and build the backends behind them.</h2>
       <p class="hero-text reveal">
         I work across the full data-to-product pipeline — SQL analytics layers, business
         intelligence dashboards, machine learning models, and production-minded REST APIs.
@@ -44,7 +48,20 @@
         <a class="btn btn-primary" href="#projects">View my work</a>
         <a class="btn btn-outline" href="#contact">Get in touch</a>
       </div>
+      <dl class="stats reveal">
+        <div class="stat"><dt class="stat-value mono"><span data-count="4">0</span></dt><dd>featured projects</dd></div>
+        <div class="stat"><dt class="stat-value mono"><span data-count="29">0</span>/29</dt><dd>data quality checks passing</dd></div>
+        <div class="stat"><dt class="stat-value mono"><span data-count="8">0</span></dt><dd>reusable analytical views</dd></div>
+        <div class="stat"><dt class="stat-value mono"><span data-count="2">0</span></dt><dd>forecasting models shipped</dd></div>
+      </dl>
     </section>
+
+    <!-- Tech marquee -->
+    <div class="marquee reveal" aria-label="Technologies">
+      <div class="marquee-track mono">
+        <span>PostgreSQL</span><span>Python</span><span>Power BI</span><span>DAX</span><span>Spring Boot</span><span>Java 17</span><span>scikit-learn</span><span>Prophet</span><span>Streamlit</span><span>pandas</span><span>JWT</span><span>REST APIs</span>
+      </div>
+    </div>
 
     <!-- About -->
     <section id="about" class="section">
@@ -92,7 +109,7 @@ backend APIs · data engineering</span>
     <section id="skills" class="section">
       <h2 class="section-title reveal"><span class="mono accent">02.</span> Skills</h2>
       <div class="skills-grid">
-        <div class="skill-card reveal">
+        <div class="skill-card spotlight reveal">
           <h3>Data &amp; Analytics</h3>
           <div class="tags">
             <span class="tag">SQL</span><span class="tag">PostgreSQL</span><span class="tag">OLAP</span>
@@ -100,14 +117,14 @@ backend APIs · data engineering</span>
             <span class="tag">RFM Segmentation</span><span class="tag">KPI Design</span>
           </div>
         </div>
-        <div class="skill-card reveal">
+        <div class="skill-card spotlight reveal">
           <h3>BI &amp; Visualization</h3>
           <div class="tags">
             <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Semantic Models</span>
             <span class="tag">Streamlit</span><span class="tag">matplotlib</span><span class="tag">seaborn</span>
           </div>
         </div>
-        <div class="skill-card reveal">
+        <div class="skill-card spotlight reveal">
           <h3>Machine Learning</h3>
           <div class="tags">
             <span class="tag">scikit-learn</span><span class="tag">Prophet</span><span class="tag">ARIMA</span>
@@ -115,7 +132,7 @@ backend APIs · data engineering</span>
             <span class="tag">Cross-Validation</span>
           </div>
         </div>
-        <div class="skill-card reveal">
+        <div class="skill-card spotlight reveal">
           <h3>Backend Engineering</h3>
           <div class="tags">
             <span class="tag">Java 17</span><span class="tag">Spring Boot</span><span class="tag">Spring Security</span>
@@ -131,7 +148,7 @@ backend APIs · data engineering</span>
       <h2 class="section-title reveal"><span class="mono accent">03.</span> Projects</h2>
       <div class="projects-grid">
 
-        <article class="project-card reveal" data-repo="Vaibhav-1614/adventureworks-bi">
+        <article class="project-card spotlight reveal" data-repo="Vaibhav-1614/adventureworks-bi">
           <div class="project-top">
             <span class="project-type mono">Business Intelligence</span>
             <a class="project-gh" href="https://github.com/Vaibhav-1614/adventureworks-bi" target="_blank" rel="noopener" aria-label="adventureworks-bi on GitHub">
@@ -151,7 +168,7 @@ backend APIs · data engineering</span>
           </div>
         </article>
 
-        <article class="project-card reveal" data-repo="Vaibhav-1614/ecommerce-analytics-dashboard">
+        <article class="project-card spotlight reveal" data-repo="Vaibhav-1614/ecommerce-analytics-dashboard">
           <div class="project-top">
             <span class="project-type mono">Analytics · ML</span>
             <a class="project-gh" href="https://github.com/Vaibhav-1614/ecommerce-analytics-dashboard" target="_blank" rel="noopener" aria-label="ecommerce-analytics-dashboard on GitHub">
@@ -171,7 +188,7 @@ backend APIs · data engineering</span>
           </div>
         </article>
 
-        <article class="project-card reveal" data-repo="Vaibhav-1614/multitenant-api">
+        <article class="project-card spotlight reveal" data-repo="Vaibhav-1614/multitenant-api">
           <div class="project-top">
             <span class="project-type mono">Backend</span>
             <a class="project-gh" href="https://github.com/Vaibhav-1614/multitenant-api" target="_blank" rel="noopener" aria-label="multitenant-api on GitHub">
@@ -191,7 +208,7 @@ backend APIs · data engineering</span>
           </div>
         </article>
 
-        <article class="project-card reveal" data-repo="Vaibhav-1614/Bike_Sharing_Analysis">
+        <article class="project-card spotlight reveal" data-repo="Vaibhav-1614/Bike_Sharing_Analysis">
           <div class="project-top">
             <span class="project-type mono">Analytics · ML</span>
             <a class="project-gh" href="https://github.com/Vaibhav-1614/Bike_Sharing_Analysis" target="_blank" rel="noopener" aria-label="Bike_Sharing_Analysis on GitHub">
@@ -234,6 +251,14 @@ backend APIs · data engineering</span>
   <footer class="footer">
     <p class="mono">Designed &amp; built by Vaibhav Sharma · <span id="year"></span></p>
   </footer>
+
+  <a href="#top" class="to-top" id="to-top" aria-label="Back to top">
+    <svg viewBox="0 0 44 44" aria-hidden="true">
+      <circle class="to-top-track" cx="22" cy="22" r="20" />
+      <circle class="to-top-ring" id="to-top-ring" cx="22" cy="22" r="20" />
+    </svg>
+    <span class="to-top-arrow">↑</span>
+  </a>
 
   <script src="script.js"></script>
 </body>

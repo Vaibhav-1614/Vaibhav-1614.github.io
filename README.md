@@ -8,7 +8,8 @@ no dependencies.
 
 - `index.html` — single-page site (hero, about, skills, projects, contact)
 - `styles.css` — dark modern theme, responsive layout
-- `script.js` — scroll-reveal animations and footer year
+- `script.js` — scroll progress bar, active-section nav indicator, card
+  spotlight, hero text scramble, stat counters, scroll-reveal animations
 
 ## Run locally
 
