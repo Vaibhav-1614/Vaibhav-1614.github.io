@@ -1,53 +1,47 @@
-# Portfolio Website — Vaibhav Sharma
+# Portfolio: Vaibhav Sharma
 
-Personal portfolio showcasing data analytics, business intelligence, and backend
-engineering projects. Built with plain HTML, CSS, and JavaScript — no build step,
-no dependencies.
+Personal portfolio showcasing RAG evaluation, business intelligence, machine learning and backend
+engineering projects. Live at **https://vaibhav-1614.github.io**.
+
+Built with **React 19, TypeScript, Tailwind CSS v4 and Motion**, bundled by Vite and deployed to
+GitHub Pages by GitHub Actions.
+
+## Features
+
+- **Project dialogs**: each card morphs into a full case study (plain-English summary, problem →
+  approach → results, screenshot gallery with swipe and lightbox, engineering decisions, skills).
+  Every project has a shareable URL, e.g. `/#project/rag`.
+- **Interactive RAG benchmark chart**: bars re-rank when you switch metric, with tooltips and a table view.
+- **Command palette** (`⌘K` / `Ctrl K`), **interactive terminal** (type `help`), light/dark theme with
+  a circular reveal, magnetic buttons, cursor spotlight cards, a particle-network hero, scroll
+  progress, and live "last updated" data from the GitHub API.
+- Keyboard accessible, and all motion respects `prefers-reduced-motion`.
 
 ## Structure
 
-- `index.html` — single-page site (hero, about, skills, projects, contact)
-- `styles.css` — dark modern theme, responsive layout
-- `script.js` — scroll progress bar, active-section nav indicator, card
-  spotlight, hero text scramble, stat counters, scroll-reveal animations
+- `src/data/projects.ts`: all project content (text, metrics, screenshot captions). **Edit this to update projects.**
+- `src/data/rag.ts`: RAG benchmark numbers for the chart
+- `src/components/`: UI sections and effects
+- `public/projects/<slug>/`: screenshots as WebP (full size plus `-thumb`)
+- `scripts/optimize-images.mjs`: converts raw PNG screenshots to WebP
 
-## Run locally
-
-Just open `index.html` in a browser, or serve it:
-
-```bash
-python -m http.server 8000
-```
-
-Then visit http://localhost:8000.
-
-## Deploy to GitHub Pages
-
-1. Create a repository named `Vaibhav-1614.github.io` on GitHub
-   (using this exact name makes the site available at the root URL).
-2. Push these files to the `main` branch:
+## Develop
 
 ```bash
-git init
-git add .
-git commit -m "Initial portfolio site"
-git branch -M main
-git remote add origin https://github.com/Vaibhav-1614/Vaibhav-1614.github.io.git
-git push -u origin main
+npm install
+npm run dev       # http://localhost:5173
+npm run build     # type-check + production build into dist/
 ```
 
-3. On GitHub, go to **Settings → Pages** and confirm the source is
-   `main` branch, `/ (root)`. The site goes live at
-   **https://vaibhav-1614.github.io** within a couple of minutes.
+## Adding screenshots
 
-## Custom domain (optional)
+```bash
+node scripts/optimize-images.mjs "path/to/png-folder" <slug>
+```
 
-The GitHub Student Developer Pack includes a free `.me` domain from Namecheap.
-After claiming it, add the domain under **Settings → Pages → Custom domain**
-and configure the DNS records Namecheap prompts you for.
+Then list the new files (without extension) in that project's `screenshots` array in `src/data/projects.ts`.
 
-## Updating content
+## Deploy
 
-- **Email**: the contact link is a `mailto:` in the Contact section of `index.html`.
-- **Projects**: each project is an `<article class="project-card">` block in
-  `index.html` — copy one to add a new project.
+Pushing to `main` runs `.github/workflows/deploy.yml`, which builds the site and publishes `dist/`.
+One-time setup: **Settings → Pages → Build and deployment → Source: GitHub Actions**.

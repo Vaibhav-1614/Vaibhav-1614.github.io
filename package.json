@@ -1,0 +1,37 @@
+{
+  "name": "vaibhav-portfolio",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -p . && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vaibhav-1614/Vaibhav-1614.github.io.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Vaibhav-1614/Vaibhav-1614.github.io/issues"
+  },
+  "homepage": "https://github.com/Vaibhav-1614/Vaibhav-1614.github.io#readme",
+  "dependencies": {
+    "cmdk": "^1.1.1",
+    "lucide-react": "^1.48.0",
+    "motion": "^13.4.4",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1"
+  },
+  "private": true,
+  "type": "module"
+}
