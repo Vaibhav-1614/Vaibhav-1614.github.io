@@ -157,6 +157,8 @@
   top: 14.749065svh;
   left: 49.121328vw;
   height: 106.109034svh;
+  /* Size to the image, not to the space left of the 50% anchor. */
+  width: max-content;
   transform: translateX(-50%);
   pointer-events: none;
 }
@@ -214,7 +216,7 @@
 .poster-tagline {
   position: absolute;
   z-index: 3;
-  top: 60svh;
+  top: 67svh;
   left: 4.348958vw;
   width: 25vw;
   margin: 0;

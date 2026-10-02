@@ -3,10 +3,9 @@ import "../poster-fonts.css";
 import "../poster.css";
 import { TextScramble } from "./primitives";
 
-const FRONT_SRC =
-  "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260808_192942_e1086505-d7da-433b-a59b-8220f4e6c808.png&w=1280&q=85";
-const REVEAL_SRC =
-  "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260808_151324_bf318a5f-5525-4fc7-aab5-e9a341018828.png&w=1280&q=85";
+// Self-hosted copies of the two Higgsfield lilies (converted to WebP, 1280px, q85).
+const FRONT_SRC = `${import.meta.env.BASE_URL}poster/lily-front.webp`;
+const REVEAL_SRC = `${import.meta.env.BASE_URL}poster/lily-reveal.webp`;
 
 const links = [
   { href: "#about", label: "About" },
