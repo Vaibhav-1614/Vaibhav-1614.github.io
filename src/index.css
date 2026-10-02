@@ -45,18 +45,27 @@
   --font-mono: "Geist Mono", ui-monospace, monospace;
 }
 
+/* Page ground and type sit outside @layer on purpose: unlayered rules beat layered
+   ones, so any host stylesheet (e.g. an embed's reset) can't repaint the page light. */
+html:root,
+:root > body {
+  background: var(--bg);
+  color-scheme: dark;
+}
+
+:root > body {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5.5rem;
-  }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: var(--font-sans);
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
   }
 
   ::selection {
