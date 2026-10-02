@@ -210,6 +210,35 @@
 .support-copy--left { left: 3.177083vw; transform: scaleX(1.073); }
 .support-copy--right { left: 78.28125vw; transform: scaleX(1.058); }
 
+/* ---------- Tagline (cycling word) ---------- */
+.poster-tagline {
+  position: absolute;
+  z-index: 3;
+  top: 60svh;
+  left: 4.348958vw;
+  width: 25vw;
+  margin: 0;
+  color: #f7f7f7;
+  font-size: clamp(17px, min(1.5625vw, 2.6svh), 30px);
+  line-height: 1.3;
+  text-wrap: balance;
+  text-shadow: 0 1px 14px rgba(22, 22, 22, 0.85);
+}
+
+.poster-tagline__inner { display: block; }
+
+.poster-tagline__line {
+  display: block;
+  white-space: nowrap;
+}
+
+.poster-tagline__word {
+  background: linear-gradient(180deg, #ffc5dc 0%, #fd86db 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 /* ---------- Mobile chrome (hidden on desktop) ---------- */
 .burger,
 .menu-scrim,
@@ -251,6 +280,7 @@
 .anim .system-pill { animation: orb-quiet 620ms var(--orb-soft) 340ms both; }
 .anim .orbit-word__inner { animation: orb-word 1150ms var(--orb-reveal) 300ms both; }
 .anim .flower { animation: orb-subject 1150ms var(--orb-reveal) 660ms both; }
+.anim .poster-tagline__inner { animation: orb-corner 720ms var(--orb-soft) 860ms both; }
 .anim .support-copy__inner { animation: orb-corner 720ms var(--orb-soft) 980ms both; }
 
 /* Let the serif rise from below without being clipped by its own line box. */
@@ -266,6 +296,13 @@
     left: 0;
     width: 100%;
     text-align: center;
+  }
+}
+
+@media (max-width: 1200px) and (min-aspect-ratio: 4 / 5) {
+  .poster-tagline {
+    width: 21vw;
+    font-size: clamp(14px, 1.45vw, 17px);
   }
 }
 
@@ -402,6 +439,7 @@
   .anim .brand { animation-delay: 60ms; }
   .anim .orbit-word__inner { animation-delay: 220ms; }
   .anim .flower { animation-delay: 520ms; }
+  .anim .poster-tagline__inner { animation-delay: 700ms; }
   .anim .support-copy__inner { animation-delay: 820ms; }
 }
 
@@ -411,8 +449,16 @@
 
   .orbit-word { top: 13svh; }
 
+  .poster-tagline {
+    top: calc(13svh + var(--word-size) * 0.95);
+    left: 6vw;
+    width: 88vw;
+    font-size: 15px;
+    text-align: center;
+  }
+
   .flower {
-    top: 26svh;
+    top: calc(13svh + var(--word-size) * 0.95 + 64px);
     left: 50%;
     height: min(55svh, 110vw);
   }

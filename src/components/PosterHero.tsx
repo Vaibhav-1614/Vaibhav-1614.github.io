@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "../poster-fonts.css";
 import "../poster.css";
+import { TextScramble } from "./primitives";
 
 const FRONT_SRC =
   "https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260808_192942_e1086505-d7da-433b-a59b-8220f4e6c808.png&w=1280&q=85";
@@ -13,6 +14,8 @@ const links = [
   { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
 ];
+
+const taglineWords = ["decisions", "dashboards", "forecasts", "answers", "insights"];
 
 /* ---------- Morph-reveal trail ---------- */
 const TRAIL_MAX_POINTS = 60;
@@ -325,6 +328,18 @@ export function PosterHero() {
             <img src={REVEAL_SRC} alt="" draggable={false} />
           </div>
         </div>
+
+        <p className="poster-tagline">
+          <span className="poster-tagline__inner">
+            <span className="sr-only">I turn data into decisions and build the backends behind them.</span>
+            <span aria-hidden="true">
+              <span className="poster-tagline__line">
+                I turn data into <TextScramble words={taglineWords} className="poster-tagline__word" />
+              </span>
+              and build the backends behind them.
+            </span>
+          </span>
+        </p>
 
         <p className="support-copy support-copy--left">
           <span className="support-copy__inner">
