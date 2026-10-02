@@ -1,11 +1,11 @@
 import { MotionConfig } from "motion/react";
 import { UIProvider } from "./hooks/ui";
 import { Nav } from "./components/Nav";
-import { Hero, Marquee } from "./components/Hero";
+import { PosterHero } from "./components/PosterHero";
 import { About, Contact, Footer, Skills } from "./components/Sections";
 import { Projects } from "./components/Projects";
 import { CommandPalette } from "./components/CommandPalette";
-import { BackToTop, CursorRing, ScrollProgress, Toast } from "./components/effects";
+import { BackToTop, ScrollProgress, Toast } from "./components/effects";
 
 export function App() {
   return (
@@ -20,8 +20,7 @@ export function App() {
         <ScrollProgress />
         <Nav />
         <main>
-          <Hero />
-          <Marquee />
+          <PosterHero />
           <About />
           <Skills />
           <Projects />
@@ -31,7 +30,6 @@ export function App() {
         <BackToTop />
         <CommandPalette />
         <Toast />
-        <CursorRing />
       </UIProvider>
     </MotionConfig>
   );

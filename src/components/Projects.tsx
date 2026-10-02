@@ -191,7 +191,7 @@ function ProjectCard({ project: p, featured }: { project: Project; featured: boo
             <GitHubIcon className="size-5" />
           </a>
         </div>
-        <motion.h3 layoutId={`title-${p.slug}`} className="mt-3 font-display text-2xl font-bold tracking-tight text-heading">
+        <motion.h3 layoutId={`title-${p.slug}`} className="mt-3 font-display text-[2rem] leading-tight tracking-[-0.01em] text-heading">
           {p.title}
         </motion.h3>
         <p className="mt-2 text-[15px] leading-relaxed text-muted">{p.tagline}</p>
@@ -252,7 +252,7 @@ function ProjectCard({ project: p, featured }: { project: Project; featured: boo
 function Block({ icon: Icon, title, children, id }: { icon: typeof Target; title: string; children: ReactNode; id?: string }) {
   return (
     <section id={id} className="scroll-mt-20">
-      <h3 className="mb-4 flex items-center gap-2.5 font-display text-xl font-semibold text-heading">
+      <h3 className="mb-4 flex items-center gap-2.5 font-display text-2xl text-heading">
         <span className="grid size-8 place-items-center rounded-lg bg-accent/10 text-accent">
           <Icon className="size-4" />
         </span>
@@ -366,7 +366,7 @@ function ProjectDialog({ project: p }: { project: Project }) {
             <motion.h2
               layoutId={`title-${p.slug}`}
               id={`dialog-title-${p.slug}`}
-              className="mt-2 font-display text-3xl font-bold tracking-tight text-heading sm:text-4xl"
+              className="mt-2 font-display text-4xl leading-tight tracking-[-0.01em] text-heading sm:text-5xl"
             >
               {p.title}
             </motion.h2>
@@ -451,7 +451,7 @@ function ProjectDialog({ project: p }: { project: Project }) {
               </div>
 
               {/* Plain-English summary for non-technical readers */}
-              <div className="relative overflow-hidden rounded-2xl border border-accent/25 bg-gradient-to-br from-accent/10 via-transparent to-accent-3/10 p-6">
+              <div className="relative overflow-hidden rounded-2xl border border-accent/25 bg-gradient-to-br from-accent/10 via-transparent to-accent-soft/5 p-6">
                 <div className="flex items-center gap-2 font-mono text-xs tracking-[0.14em] text-accent uppercase">
                   <Lightbulb className="size-4" /> In plain English
                 </div>

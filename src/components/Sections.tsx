@@ -128,7 +128,7 @@ export function Skills() {
                 <span className="grid size-10 place-items-center rounded-xl border border-accent/25 bg-accent/10 text-accent">
                   <g.icon className="size-5" />
                 </span>
-                <h3 className="font-display text-lg font-semibold text-heading">{g.title}</h3>
+                <h3 className="font-display text-2xl text-heading">{g.title}</h3>
               </div>
               <p className="mt-3 text-sm text-muted">{g.blurb}</p>
               <div className="mt-4 flex flex-wrap gap-2">
@@ -157,7 +157,7 @@ export function Contact() {
       />
       <Reveal>
         <p className="font-mono text-sm text-accent">04. What's next?</p>
-        <h2 className="mt-4 font-display text-[clamp(2.4rem,7vw,5rem)] leading-none font-bold tracking-tight">
+        <h2 className="mt-4 font-display text-[clamp(3rem,9vw,7rem)] leading-none tracking-[-0.01em]">
           <span className="text-gradient">Let's build something.</span>
         </h2>
         <p className="mx-auto mt-6 max-w-xl text-lg text-muted">

@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { Command } from "cmdk";
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowRight, Briefcase, Code2, Copy, ExternalLink, FileCode2, Home, Mail, Moon, Sun, User } from "lucide-react";
+import { ArrowRight, Briefcase, Code2, Copy, ExternalLink, FileCode2, Home, Mail, User } from "lucide-react";
 import { EMAIL, GITHUB_USER, projects } from "../data/projects";
 import { copyText, useUI } from "../hooks/ui";
 import { GitHubIcon } from "./primitives";
 
 export function CommandPalette() {
-  const { paletteOpen, setPaletteOpen, openProject, closeProject, activeProject, theme, setTheme, toast } = useUI();
+  const { paletteOpen, setPaletteOpen, openProject, closeProject, activeProject, toast } = useUI();
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -119,13 +119,6 @@ export function CommandPalette() {
                   </Command.Item>
                   <Command.Item value="send email" onSelect={run(() => (window.location.href = `mailto:${EMAIL}`))} className={item}>
                     <Mail /> Send an email
-                  </Command.Item>
-                  <Command.Item
-                    value="toggle theme dark light mode"
-                    onSelect={run(() => setTheme(theme === "dark" ? "light" : "dark"))}
-                    className={item}
-                  >
-                    {theme === "dark" ? <Sun /> : <Moon />} Switch to {theme === "dark" ? "light" : "dark"} theme
                   </Command.Item>
                   <Command.Item
                     value="github profile"

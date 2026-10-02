@@ -15,7 +15,7 @@ const intro: Line[] = [
 const HINT = "Type 'help' and press Enter. Try it!";
 
 export function Terminal() {
-  const { openProject, setTheme, toast } = useUI();
+  const { openProject, toast } = useUI();
   const ref = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -83,7 +83,6 @@ export function Terminal() {
               ["contact", "how to reach me"],
               ["copy email", "copy my email address"],
               ["github", "open my GitHub"],
-              ["theme light|dark", "switch theme"],
               ["clear", "clear the screen"],
             ].map(([c, d]) => (
               <span key={c} className="contents">
@@ -131,12 +130,6 @@ export function Terminal() {
       case "github":
         window.open(`https://github.com/${GITHUB_USER}`, "_blank", "noopener");
         return `Opening github.com/${GITHUB_USER}…`;
-      case "theme":
-        if (arg === "light" || arg === "dark") {
-          setTheme(arg);
-          return `Theme set to ${arg}.`;
-        }
-        return "Usage: theme light | theme dark";
       case "sudo":
         return arg.includes("hire") ? "Permission granted. Let's talk → type 'contact' 🚀" : "Nice try. This incident will be reported.";
       case "date":

@@ -196,7 +196,7 @@ export function SectionHeading({ index, title, subtitle }: { index: string; titl
     <Reveal className="mb-10 md:mb-14">
       <div className="flex items-center gap-4">
         <span className="font-mono text-sm text-accent">{index}.</span>
-        <h2 className="font-display text-3xl font-bold tracking-tight text-heading md:text-4xl">{title}</h2>
+        <h2 className="font-display text-5xl leading-none tracking-[-0.01em] text-heading md:text-7xl">{title}</h2>
         <motion.span
           className="h-px max-w-xs flex-1 origin-left bg-gradient-to-r from-line-strong to-transparent"
           initial={{ scaleX: 0 }}

@@ -1,6 +1,6 @@
-import { useEffect, useState, type MouseEvent } from "react";
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/react";
-import { Briefcase, Code2, Mail, Moon, Search, Sun, User } from "lucide-react";
+import { useEffect, useState } from "react";
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import { Briefcase, Code2, Mail, Search, User } from "lucide-react";
 import { useUI } from "../hooks/ui";
 import { isMac } from "./primitives";
 
@@ -12,13 +12,14 @@ const links = [
 ];
 
 export function Nav() {
-  const { theme, toggleTheme, setPaletteOpen } = useUI();
+  const { setPaletteOpen } = useUI();
   const [active, setActive] = useState<string | null>(null);
-  const [compact, setCompact] = useState(false);
+  const [shown, setShown] = useState(false);
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (v) => {
-    setCompact(v > 40);
+    // The poster carries its own nav, so this one only appears once it has scrolled away.
+    setShown(v > window.innerHeight * 0.85);
     if (v < window.innerHeight * 0.4) setActive(null);
   });
 
@@ -36,26 +37,25 @@ export function Nav() {
     return () => observer.disconnect();
   }, []);
 
-  const onTheme = (e: MouseEvent<HTMLButtonElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    toggleTheme({ x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 });
-  };
-
   return (
     <motion.header
       className="fixed inset-x-0 top-3 z-[60] flex justify-center px-3 md:top-4"
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+      initial={false}
+      animate={shown ? { y: 0, opacity: 1 } : { y: -90, opacity: 0 }}
+      transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+      inert={!shown}
     >
       <nav
         aria-label="Main"
-        className={`flex items-center gap-1 rounded-full border px-2 py-1.5 backdrop-blur-xl transition-all duration-500 ${
-          compact ? "border-line bg-surface/75 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]" : "border-transparent bg-surface/30"
-        }`}
+        className="flex items-center gap-1 rounded-full border border-line bg-surface/80 px-2 py-1.5 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.6)] backdrop-blur-xl"
       >
-        <a href="#top" className="mr-1 rounded-full px-3 py-1.5 font-mono text-sm font-semibold text-heading">
-          <span className="text-accent">&lt;</span>VS<span className="text-accent">/&gt;</span>
+        <a href="#top" className="mr-1 grid size-9 place-items-center rounded-full text-heading" aria-label="Back to top">
+          <svg viewBox="0 0 66 62" className="size-4" aria-hidden="true" stroke="currentColor" strokeWidth="6" strokeLinecap="square">
+            <line x1="33" y1="1" x2="33" y2="61" />
+            <line x1="3" y1="31" x2="63" y2="31" />
+            <line x1="11.8" y1="9.8" x2="54.2" y2="52.2" />
+            <line x1="54.2" y1="9.8" x2="11.8" y2="52.2" />
+          </svg>
         </a>
 
         {links.map(({ id, label, icon: Icon }) => (
@@ -93,24 +93,6 @@ export function Nav() {
           </kbd>
         </button>
 
-        <button
-          type="button"
-          onClick={onTheme}
-          className="relative grid size-8 place-items-center overflow-hidden rounded-full text-muted transition-colors hover:text-heading"
-          aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
-        >
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.span
-              key={theme}
-              initial={{ y: -20, rotate: -90, opacity: 0 }}
-              animate={{ y: 0, rotate: 0, opacity: 1 }}
-              exit={{ y: 20, rotate: 90, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-            >
-              {theme === "dark" ? <Moon className="size-4" /> : <Sun className="size-4" />}
-            </motion.span>
-          </AnimatePresence>
-        </button>
       </nav>
     </motion.header>
   );
