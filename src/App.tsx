@@ -2,6 +2,7 @@ import { MotionConfig } from "motion/react";
 import { UIProvider } from "./hooks/ui";
 import { Nav } from "./components/Nav";
 import { PosterHero } from "./components/PosterHero";
+import { Marquee } from "./components/Marquee";
 import { About, Contact, Footer, Skills } from "./components/Sections";
 import { Projects } from "./components/Projects";
 import { CommandPalette } from "./components/CommandPalette";
@@ -21,6 +22,7 @@ export function App() {
         <Nav />
         <main>
           <PosterHero />
+          <Marquee />
           <About />
           <Skills />
           <Projects />

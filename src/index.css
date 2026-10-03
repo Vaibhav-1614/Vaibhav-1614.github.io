@@ -130,6 +130,15 @@ html:root,
 
 .spotlight:hover::after { opacity: 1; }
 
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee { animation: marquee 45s linear infinite; }
+.animate-marquee-reverse { animation: marquee 52s linear infinite reverse; }
+.group:hover .animate-marquee,
+.group:hover .animate-marquee-reverse { animation-play-state: paused; }
+
 @keyframes blink { 50% { opacity: 0; } }
 .animate-blink { animation: blink 1.1s steps(1) infinite; }
 
@@ -150,5 +159,5 @@ html:root,
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .animate-blink { animation: none; }
+  .animate-blink, .animate-marquee, .animate-marquee-reverse { animation: none; }
 }
